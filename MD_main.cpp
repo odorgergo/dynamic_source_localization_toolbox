@@ -159,10 +159,10 @@ int read_arguments(char network[], char property[], char outF[],char header[], v
     else if (!strcmp(p_input,"0")) ps->push_back(0);
     else if (!strcmp(p_input,"1")) ps->push_back(1);
     else if (!strcmp(p_input,"1/2")) ps->push_back(0.5);
-    else if (!strcmp(p_input,"range20")) for(int pi=0; pi<20; pi++) ps->push_back(pi*0.05);  
+    else if (!strcmp(p_input,"range20")) for(int pi=0; pi<21; pi++) ps->push_back(pi*0.05);  
     else if (!strcmp(p_input,"range30")) {
       for(int pi=0; pi<10; pi++) ps->push_back(pi*0.005);
-      for(int pi=1; pi<20; pi++) ps->push_back(pi*0.05);  
+      for(int pi=1; pi<21; pi++) ps->push_back(pi*0.05);  
     }
     else if (!strcmp(p_input,"N^-1/2")) ps->push_back(-float(1)/2);
     else if (!strcmp(p_input,"N^-2/3")) ps->push_back(-float(2)/3);
