@@ -27,39 +27,39 @@ is a header which explains which column corresponds to which property.
 
 PARAMETERS:
 -net    network
-        Gnp: Erdos-Renyi network with N,p
-        Grid: 2D (NxN) grid, with random edges rewired with probability p
-        RGG: Random geometric graph, with random edges rewired with probability p
+        - Gnp: Erdos-Renyi network with N,p
+        - Grid: 2D (NxN) grid, with random edges rewired with probability p
+        - RGG: Random geometric graph, with random edges rewired with probability p
 -N	graph size (number of nodes)
 -Ns	graph size if a range of values is desired
-        pow2: powers of two from 2 to 1024
-        pow2_large: powers of 2 from 2048 to 32768
-        range10: multiples of 100 from 100 to 1000
+        - pow2: powers of two from 2 to 1024
+        - pow2_large: powers of 2 from 2048 to 32768
+        - range10: multiples of 100 from 100 to 1000
 -p	probability of edges (Gnp) or probability of rewiring (Grid, RGG)
-        0: The single value 0
-        1/2: The single value 0.5
-        1: The single value 1
-        range20: Multiples of 0.05 from 0 to 1
-        range30: Multiples of 0.05 from 0 to 1 and multiples of 0.005 from 0 to 0.05
-        N^-1/2: The single value of N^(-1/2)
-        N^-2/3: The single value of N^(-2/3)
-        N^-3/4: The single value of N^(-3/4)
-        N^-4/5: The single value of N^(-4/5)
-        N^-5/6: The single value of N^(-5/6)
+        - 0: The single value 0
+        - 1/2: The single value 0.5
+        - 1: The single value 1
+        - range20: Multiples of 0.05 from 0 to 1
+        - range30: Multiples of 0.05 from 0 to 1 and multiples of 0.005 from 0 to 0.05
+        - N^-1/2: The single value of N^(-1/2)
+        - N^-2/3: The single value of N^(-2/3)
+        - N^-3/4: The single value of N^(-3/4)
+        - N^-4/5: The single value of N^(-4/5)
+        - N^-5/6: The single value of N^(-5/6)
 -prop   Property of interest
-        MD: Metric dimension (with greedy entropy approximation)
-        DynMD: Dynamic metric dimension (with greedy algroithm computed for each source)
-        RMD: Robust metric dimension (with greedy approximation)
+        - MD: Metric dimension (with greedy entropy approximation)
+        - DynMD: Dynamic metric dimension (with greedy algroithm computed for each source)
+        - RMD: Robust metric dimension (with greedy approximation)
 -cd	connection distance for grid
-        default value is 1 (which is the usual grid)
+        - default value is 1 (which is the usual grid)
 -rad    radius of RGG
 -rho    maximum value noise for RMD (the program will loop over noise=0...rho)
-        default value is 0 (which is in theory identical with MD, but this is a worse approximation)
+        - default value is 0 (which is in theory identical with MD, but this is a worse approximation)
 -i      number of iterations
-        default value is 1 
+        - default value is 1 
 -o	output file
-        default value is stdout which will print on the screen
-        note: a suffix _iter%d.txt will be added to the output file name
+        - default value is stdout which will print on the screen
+        - note: a suffix _iter%d.txt will be added to the output file name
 
 OUTPUT:
 The program generates a file specified by the -o parameter (or if no -o parameter is given on the screen).
