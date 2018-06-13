@@ -26,7 +26,7 @@ random graph and also the property of interest (MD, DynMD, RMD). The first line 
 is a header which explains which column corresponds to which property.
 
 PARAMETERS:
--net network
+-net    network
         Gnp: Erdos-Renyi network with N,p
         Grid: 2D (NxN) grid, with random edges rewired with probability p
         RGG: Random geometric graph, with random edges rewired with probability p
@@ -46,16 +46,16 @@ PARAMETERS:
         N^-3/4: The single value of N^(-3/4)
         N^-4/5: The single value of N^(-4/5)
         N^-5/6: The single value of N^(-5/6)
--prop	Property of interest
+-prop   Property of interest
         MD: Metric dimension (with greedy entropy approximation)
         DynMD: Dynamic metric dimension (with greedy algroithm computed for each source)
         RMD: Robust metric dimension (with greedy approximation)
 -cd	connection distance for grid
         default value is 1 (which is the usual grid)
--rad radius of RGG
--rho maximum value noise for RMD (the program will loop over noise=0...rho)
+-rad    radius of RGG
+-rho    maximum value noise for RMD (the program will loop over noise=0...rho)
         default value is 0 (which is in theory identical with MD, but this is a worse approximation)
--i number of iterations
+-i      number of iterations
         default value is 1 
 -o	output file
         default value is stdout which will print on the screen
