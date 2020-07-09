@@ -1,8 +1,12 @@
 ## dynamic_source_localization_toolbox
 
 The dynamic_source_localization_toolbox is a toolbox written in C++ to compute
-the metric dimension (MD), the dynamic metric dimension (DynMD) and the
-robust metric dimension (RMD) of certain random graph models.
+the metric dimension (MD), the dynamic metric dimension (DynMD) of certain random graph models.
+For details, please see the 
+
+Gergely Odor, Patrick Thiran: Sequential metric dimension for random graphs
+
+companion paper (there the DynMD is referred to as SMD).
 
 ### Installation:
 
@@ -15,15 +19,16 @@ In order to install the dynamic_source_localization_toolbox you install the igra
 
 ```
 NAME: 
-MD_main -- compute the MD, DynMD, or RMD
+MD_main -- compute the MD and/or the DynMD
 
 SYNOPSIS: 
 MD_main [parameters]  
 
 DESCRIPTION:
 The program generates a file in which each line has the basic properties of the generated
-random graph and also the property of interest (MD, DynMD, RMD). The first line of each file
+random graph and also the property of interest (MD, DynMD). The first line of each file
 is a header which explains which column corresponds to which property.
+
 
 PARAMETERS:
 -net    network
@@ -41,6 +46,7 @@ PARAMETERS:
         - 1: The single value 1
         - range20: Multiples of 0.05 from 0 to 1
         - range30: Multiples of 0.05 from 0 to 1 and multiples of 0.005 from 0 to 0.05
+        - N^-1/4: The single value of N^(-1/4)
         - N^-1/2: The single value of N^(-1/2)
         - N^-2/3: The single value of N^(-2/3)
         - N^-3/4: The single value of N^(-3/4)
@@ -49,12 +55,10 @@ PARAMETERS:
 -prop   Property of interest
         - MD: Metric dimension (with greedy entropy approximation)
         - DynMD: Dynamic metric dimension (with greedy algroithm computed for each source)
-        - RMD: Robust metric dimension (with greedy approximation)
+        - MD+DynMD: Compute both the MD and the DynMD
 -cd	connection distance for grid
         - default value is 1 (which is the usual grid)
 -rad    radius of RGG
--rho    maximum value noise for RMD (the program will loop over noise=0...rho)
-        - default value is 0 (which is in theory identical with MD, but this is a worse approximation)
 -i      number of iterations
         - default value is 1 
 -o	output file

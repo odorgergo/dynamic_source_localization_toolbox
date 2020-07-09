@@ -13,3 +13,4 @@ int cut_approx(igraph_matrix_t* D, int** confusion, int N, int theta);
 int compute_MD(igraph_matrix_t *D, int gN);          
 int compute_DynMD(igraph_matrix_t *D,int gN);
 int compute_RMD(igraph_matrix_t *D, int gN, int rho, int theta);
+void dist_sets(igraph_matrix_t *D, int N, FILE* ki,char* network,int ecount,double p,int cd);

@@ -43,7 +43,7 @@ int main(int argc, char * const argv[]){
 	    	     igraph_vector_init(&dimvector, 2);
 	    	     VECTOR(dimvector)[0]=a;
 	    	     VECTOR(dimvector)[1]=a;
-	    	     igraph_lattice(&graph,&dimvector,cd, false, false, true);
+	    	     igraph_lattice(&graph,&dimvector,cd, false, false, false);
 	    	     igraph_rewire_edges(&graph, p, false, false);
 	    	}
 	    	else if (!strcmp(network,"RGG")) {
@@ -73,6 +73,7 @@ int main(int argc, char * const argv[]){
 	    			for(int theta=0; theta<rho+1; theta++) 
 	    				fprintf(ki,"%d\n",compute_RMD(&D,gN,rho,theta));
 	    	else if (!strcmp(property,"MD+DynMD")) fprintf(ki,"%d %d\n",compute_MD(&D,gN),compute_DynMD(&D,gN));
+	    	else if (!strcmp(property,"dist_sets")) dist_sets(&D,gN,ki,network,(int )igraph_ecount(&giant),p,cd); 
 	    	
 	    	// Freeing memory
 	    	igraph_matrix_destroy(&D);   
@@ -164,6 +165,7 @@ int read_arguments(char network[], char property[], char outF[],char header[], v
       for(int pi=0; pi<10; pi++) ps->push_back(pi*0.005);
       for(int pi=1; pi<21; pi++) ps->push_back(pi*0.05);  
     }
+    else if (!strcmp(p_input,"N^-1/4")) ps->push_back(-float(1)/4);
     else if (!strcmp(p_input,"N^-1/2")) ps->push_back(-float(1)/2);
     else if (!strcmp(p_input,"N^-2/3")) ps->push_back(-float(2)/3);
     else if (!strcmp(p_input,"N^-3/4")) ps->push_back(-float(3)/4);
@@ -232,6 +234,9 @@ int read_arguments(char network[], char property[], char outF[],char header[], v
     }
     else if(!strcmp(property,"MD+DynMD")) {
         sprintf(header,"%sMD DynMD ",header);
+    }
+    else if(!strcmp(property,"dist_sets")) {
+        sprintf(header,"%si j dist_set",header);
     }
     else if(!strcmp(property,"RMD")) {
     	printf("   rho_max= %d\n",*rho_max);
