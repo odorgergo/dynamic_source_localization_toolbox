@@ -4,7 +4,7 @@ The dynamic_source_localization_toolbox is a toolbox written in C++ to compute
 the metric dimension (MD), the dynamic metric dimension (DynMD) of certain random graph models.
 For details, please see the 
 
-Gergely Odor, Patrick Thiran: Sequential metric dimension for random graphs
+Odor, Gergely, and Patrick Thiran. "Sequential metric dimension for random graphs."
 
 companion paper (there the DynMD is referred to as SMD).
 
