@@ -35,6 +35,7 @@ PARAMETERS:
         - Gnp: Erdos-Renyi network with N,p
         - Grid: 2D (NxN) grid, with random edges rewired with probability p
         - RGG: Random geometric graph, with random edges rewired with probability p
+	- any other string: reading from file with this filename will be attempted (assuming edgelist format)
 -N	graph size (number of nodes)
 -Ns	graph size if a range of values is desired
         - pow2: powers of two from 2 to 1024

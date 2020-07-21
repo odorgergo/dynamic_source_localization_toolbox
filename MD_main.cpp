@@ -49,7 +49,14 @@ int main(int argc, char * const argv[]){
 	    	else if (!strcmp(network,"RGG")) {
 	    		igraph_grg_game(&graph,N,rad, 1,0,0);
 	    		igraph_rewire_edges(&graph, p, false, false);
-	    	}
+	    	} else {
+	    	    FILE* input = fopen(network, "r");
+	    	    if (!input) {
+	    	        printf("File not found\n");
+	    	        return 0;
+	    	    }
+	    	    igraph_read_graph_edgelist(&graph, input,0,false);
+	    	} 
 	    	
 	    	// Taking the largest connected component
 	    	largest_connected(&graph,&giant);
@@ -216,8 +223,7 @@ int read_arguments(char network[], char property[], char outF[],char header[], v
 	   	sprintf(header,"%srad, ",header);
     }
     else {
-        fprintf(stderr,"given network model not implemented\n\n");
-    	exit(-1);
+        printf("Reading from file\n");
     }
     
     printf("   Property to compute : %s\n",property);
