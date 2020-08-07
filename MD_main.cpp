@@ -71,6 +71,7 @@ int main(int argc, char * const argv[]){
 	    	igraph_matrix_t D;
      		igraph_matrix_init(&D, 0, 0);
      		igraph_shortest_paths(&giant, &D, igraph_vss_all(), igraph_vss_all(), IGRAPH_ALL);
+     		
 	    	
 	    	//Computing property of interest
 	    	if (!strcmp(property,"MD")) fprintf(ki,"%d\n",compute_MD(&D,gN));
@@ -80,7 +81,13 @@ int main(int argc, char * const argv[]){
 	    			for(int theta=0; theta<rho+1; theta++) 
 	    				fprintf(ki,"%d\n",compute_RMD(&D,gN,rho,theta));
 	    	else if (!strcmp(property,"MD+DynMD")) fprintf(ki,"%d %d\n",compute_MD(&D,gN),compute_DynMD(&D,gN));
-	    	else if (!strcmp(property,"dist_sets")) dist_sets(&D,gN,ki,network,(int )igraph_ecount(&giant),p,cd); 
+	    	else if (!strcmp(property,"dist_sets")) {
+	    		igraph_vector_t deg;
+	    		igraph_vector_init(&deg, gN);
+	    		igraph_degree(&giant, &deg, igraph_vss_all(), IGRAPH_ALL, IGRAPH_NO_LOOPS);
+
+	    		dist_sets(&D,gN,ki,network,(int )igraph_ecount(&giant),p,cd, &deg); 
+	    	}
 	    	
 	    	// Freeing memory
 	    	igraph_matrix_destroy(&D);   

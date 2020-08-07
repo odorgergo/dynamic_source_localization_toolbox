@@ -209,7 +209,7 @@ int compute_RMD(igraph_matrix_t *D, int gN, int rho, int theta) {
 }
 
 
-void dist_sets(igraph_matrix_t *D, int N, FILE* ki,char* network,int ecount,double p,int cd) {
+void dist_sets(igraph_matrix_t *D, int N, FILE* ki,char* network,int ecount,double p,int cd, igraph_vector_t *deg) {
 	fprintf(ki,"\n"); 
     for(int v=0; v<N; v++) {
 	  for(int i=v+1; i<N; i++) {
@@ -218,7 +218,7 @@ void dist_sets(igraph_matrix_t *D, int N, FILE* ki,char* network,int ecount,doub
 	     for(int j=0; j<N; j++)  if(MATRIX(*D,v,j)!=MATRIX(*D,i,j)) dist_set++;
 
 	     fprintf(ki,"%s %d %d %f %d ",network,N,ecount,p,cd);
-	     fprintf(ki,"%d %d %d\n",v,i,dist_set);
+	     fprintf(ki,"%d %d %d %d %d %d\n",v,i,int(VECTOR(*deg)[v]),int(VECTOR(*deg)[i]),int(MATRIX(*D,v,i)),dist_set);
 	  }
 	}
 }
